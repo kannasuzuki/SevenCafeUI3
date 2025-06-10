@@ -1,0 +1,472 @@
+body {
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
+
+.coffee-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.coffee-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+  color: #6b4f27;
+}
+
+.coffee-header p {
+  margin: 0 0 20px 0;
+  color: #8d7b5a;
+  font-size: 1rem;
+}
+
+.coffee-image img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(107,79,39,0.12);
+}
+
+.coffee-info h2 {
+  color: #6b4f27;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.coffee-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.coffee-info li {
+  margin-bottom: 8px;
+  color: #4e3a1e;
+  font-size: 1rem;
+}
+
+.coffee-btn {
+  background: #6b4f27;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.coffee-btn:hover {
+  background: #8d7b5a;
+}
+
+.coffee-proto-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.coffee-proto-message p {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #111;
+  text-align: center;
+  margin: 40px 0 32px 0;
+  line-height: 1.4;
+}
+
+.coffee-proto-cup {
+  margin-bottom: 40px;
+}
+
+.coffee-proto-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 36px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #111;
+  background: #fff;
+  border: 3px solid #111;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.coffee-proto-btn:active {
+  background: #f0f0f0;
+}
+
+.coffee-proto-btn,
+.coffee-size-circle,
+.coffee-type-main,
+.coffee-hotice-main,
+.coffee-strength-option svg {
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.coffee-proto-btn:hover,
+.coffee-size-circle:hover,
+.coffee-type-main:hover,
+.coffee-hotice-main:hover,
+.coffee-strength-option svg:hover {
+  box-shadow: 0 0 24px 8px rgba(255,255,255,0.7);
+  background: #fff;
+  z-index: 1;
+}
+
+.coffee-proto-btn:active,
+.coffee-proto-btn.pressed,
+.coffee-size-circle:active,
+.coffee-size-circle.pressed {
+  filter: none;
+  background: none;
+  box-shadow: none;
+  color: inherit;
+  transform: none;
+  transition: none;
+}
+
+.coffee-proto-btn:active,
+.coffee-size-circle:active,
+.coffee-type-main:active,
+.coffee-hotice-main:active,
+.coffee-strength-option svg:active {
+  filter: brightness(0.85);
+  transform: scale(0.96);
+  transition: filter 0.1s, transform 0.1s;
+}
+
+.coffee-proto-btn.pressed,
+.coffee-size-circle.pressed,
+.coffee-type-main.pressed,
+.coffee-hotice-main.pressed,
+.coffee-strength-option svg.pressed {
+  filter: brightness(0.85);
+  transform: scale(0.96);
+  transition: filter 0.1s, transform 0.1s;
+}
+
+.coffee-type-main:active,
+.coffee-type-main.pressed {
+  color: #888;
+  background: none;
+  box-shadow: none;
+  filter: none;
+  transform: scale(0.96);
+  transition: color 0.1s, transform 0.1s;
+}
+
+.coffee-hotice-main:active,
+.coffee-hotice-main.pressed {
+  background: none;
+  box-shadow: none;
+  filter: none;
+  color: #888;
+  transform: scale(0.96);
+  transition: color 0.1s, transform 0.1s, filter 0.1s;
+  opacity: 0.7;
+}
+
+.coffee-strength-option svg:active,
+.coffee-strength-option svg.pressed {
+  background: none;
+  box-shadow: none;
+  filter: none;
+  outline: none;
+  border: none;
+  transform: scale(0.96);
+  transition: transform 0.1s;
+}
+
+.coffee-size-container {
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.coffee-size-title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.coffee-size-title p {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 8px;
+}
+.coffee-size-underline {
+  width: 260px;
+  height: 4px;
+  background: #111;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+.coffee-size-select {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  align-items: flex-start;
+}
+.coffee-size-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coffee-size-circle {
+  width: 90px;
+  height: 90px;
+  border: 6px solid #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #111;
+  background: #fff;
+  margin-bottom: 12px;
+}
+.coffee-size-label {
+  font-size: 1.1rem;
+  color: #111;
+  font-weight: 500;
+}
+
+.coffee-type-container {
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.coffee-type-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.coffee-type-title p {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 8px;
+}
+.coffee-type-underline {
+  width: 320px;
+  height: 4px;
+  background: #111;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+.coffee-type-select {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+}
+.coffee-type-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coffee-type-main {
+  font-size: 2.1rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: #111;
+  margin-bottom: 4px;
+}
+.coffee-type-label {
+  font-size: 1.1rem;
+  color: #111;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.coffee-type-underline-option {
+  width: 120px;
+  height: 3px;
+  background: #111;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.coffee-hotice-container {
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.coffee-hotice-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.coffee-hotice-title p {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 8px;
+}
+.coffee-hotice-underline {
+  width: 320px;
+  height: 4px;
+  background: #111;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+.coffee-hotice-select {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+}
+.coffee-hotice-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coffee-hotice-main {
+  font-size: 2.1rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.coffee-hotice-main.hot {
+  color: #e60012;
+}
+.coffee-hotice-main.ice {
+  color: #0070c0;
+}
+.coffee-hotice-label {
+  font-size: 1.1rem;
+  color: #111;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.coffee-strength-container {
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.coffee-strength-title {
+  text-align: center;
+  margin-bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coffee-strength-title p {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.coffee-strength-underline {
+  width: 220px;
+  height: 4px;
+  background: #111;
+  margin: 0 auto 0 auto;
+  border-radius: 2px;
+}
+.coffee-strength-select {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 24px;
+  width: 100%;
+}
+.coffee-strength-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coffee-strength-option svg {
+  width: 160px;
+  height: 180px;
+}
+.coffee-strength-label {
+  margin-top: 8px;
+  font-size: 1.1rem;
+  color: #111;
+  font-weight: 500;
+}
+
+.coffee-brewing-container {
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.coffee-brewing-message {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.coffee-brewing-underline {
+  width: 220px;
+  height: 4px;
+  background: #111;
+  margin: 0 auto 24px auto;
+  border-radius: 2px;
+}
+.coffee-beans-row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 0;
+}
+
+.coffee-finish-container {
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.coffee-finish-line {
+  width: 320px;
+  height: 4px;
+  background: #111;
+  border-radius: 2px;
+  margin: 0 auto 24px auto;
+}
+.coffee-finish-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.coffee-finish-container .coffee-finish-line:last-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}

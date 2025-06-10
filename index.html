@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>コーヒーメーカー</title>
+  <link rel="stylesheet" href="coffee-maker.css">
+</head>
+<body>
+  <div class="coffee-proto-container" id="screen-welcome">
+    <div class="coffee-proto-message">
+      <p>いらっしゃいませ<br>カップをセットしてください</p>
+    </div>
+    <div class="coffee-proto-cup">
+      <!-- シンプルなカップのSVGアイコン -->
+      <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="90" cy="40" rx="60" ry="20" stroke="#000" stroke-width="8" fill="none"/>
+        <path d="M30 40 L45 150 Q90 170 135 150 L150 40" stroke="#000" stroke-width="8" fill="none"/>
+      </svg>
+    </div>
+    <button class="coffee-proto-btn" id="start-btn">はじめる</button>
+  </div>
+
+  <div class="coffee-size-container" id="screen-size" style="display:none;">
+    <div class="coffee-size-title">
+      <p>サイズを選択してください</p>
+      <div class="coffee-size-underline"></div>
+    </div>
+    <div class="coffee-size-select">
+      <div class="coffee-size-option">
+        <div class="coffee-size-circle">L</div>
+        <div class="coffee-size-label">ラージ</div>
+      </div>
+      <div class="coffee-size-option">
+        <div class="coffee-size-circle">R</div>
+        <div class="coffee-size-label">レギュラー</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="coffee-type-container" id="screen-type" style="display:none;">
+    <div class="coffee-type-title">
+      <p>種類を選択してください</p>
+      <div class="coffee-type-underline"></div>
+    </div>
+    <div class="coffee-type-select">
+      <div class="coffee-type-option">
+        <div class="coffee-type-main">COFFEE</div>
+        <div class="coffee-type-label">コーヒー</div>
+        <div class="coffee-type-underline-option"></div>
+      </div>
+      <div class="coffee-type-option">
+        <div class="coffee-type-main">CAFE LATTE</div>
+        <div class="coffee-type-label">カフェラテ</div>
+        <div class="coffee-type-underline-option"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="coffee-hotice-container" id="screen-hotice" style="display:none;">
+    <div class="coffee-hotice-title">
+      <p>種類を選択してください</p>
+      <div class="coffee-hotice-underline"></div>
+    </div>
+    <div class="coffee-hotice-select">
+      <div class="coffee-hotice-option">
+        <div class="coffee-hotice-main hot">HOT</div>
+        <div class="coffee-hotice-label">あたたかい</div>
+      </div>
+      <div class="coffee-hotice-option">
+        <div class="coffee-hotice-main ice">ICE</div>
+        <div class="coffee-hotice-label">つめたい</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="coffee-strength-container" id="screen-strength" style="display:none;">
+    <div class="coffee-strength-title">
+      <p>濃さを選択してください</p>
+      <div class="coffee-strength-underline"></div>
+    </div>
+    <div class="coffee-strength-select">
+      <div class="coffee-strength-option">
+        <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="40" cy="22" rx="30" ry="12" fill="#222" stroke="#111" stroke-width="5"/>
+          <path d="M10 22 L18 75 Q40 85 62 75 L70 22" fill="#222" stroke="#111" stroke-width="5"/>
+        </svg>
+        <div class="coffee-strength-label">濃いめ</div>
+      </div>
+      <div class="coffee-strength-option">
+        <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="40" cy="22" rx="30" ry="12" fill="#666" stroke="#111" stroke-width="5"/>
+          <path d="M10 22 L18 75 Q40 85 62 75 L70 22" fill="#666" stroke="#111" stroke-width="5"/>
+        </svg>
+        <div class="coffee-strength-label">ふつう</div>
+      </div>
+      <div class="coffee-strength-option">
+        <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="40" cy="22" rx="30" ry="12" fill="#bbb" stroke="#111" stroke-width="5"/>
+          <path d="M10 22 L18 75 Q40 85 62 75 L70 22" fill="#bbb" stroke="#111" stroke-width="5"/>
+        </svg>
+        <div class="coffee-strength-label">うすめ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="coffee-brewing-container" id="screen-brewing" style="display:none;">
+    <div class="coffee-brewing-message">抽出中…</div>
+    <div class="coffee-beans-row">
+      <svg class="coffee-bean" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="20" rx="14" ry="18" fill="#111"/>
+        <path d="M16 4 Q20 20 16 36" stroke="#fff" stroke-width="3" fill="none"/>
+      </svg>
+      <svg class="coffee-bean" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="20" rx="14" ry="18" fill="#111"/>
+        <path d="M16 4 Q20 20 16 36" stroke="#fff" stroke-width="3" fill="none"/>
+      </svg>
+      <svg class="coffee-bean" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="20" rx="14" ry="18" fill="#111"/>
+        <path d="M16 4 Q20 20 16 36" stroke="#fff" stroke-width="3" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="coffee-finish-container" id="screen-finish" style="display:none;">
+    <div class="coffee-finish-line"></div>
+    <div class="coffee-finish-message">
+      カップをお取りください<br>またのご利用を<br>お待ちしております
+    </div>
+    <div class="coffee-finish-line"></div>
+  </div>
+
+  <script>
+    // ボタン押下時に「押した感」を出してから画面遷移する共通関数
+    function pressAndGo(element, callback) {
+      element.classList.add('pressed');
+      setTimeout(() => {
+        element.classList.remove('pressed');
+        callback();
+      }, 200);
+    }
+
+    function playStartSound() {
+      // シンプルな「ポン」という起動音
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = 523; // C5くらいの音
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      gain.gain.setValueAtTime(0.35, now);
+      gain.gain.linearRampToValueAtTime(0, now + 0.22);
+      osc.start(now);
+      osc.stop(now + 0.22);
+      osc.onended = () => gain.disconnect();
+      setTimeout(() => ctx.close(), 300);
+    }
+
+    function playArpeggio() {
+      // 5音の「ポン」と同じ種類（sine波・短い減衰）のアルペジオ
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const now = ctx.currentTime;
+      [1046, 1175, 1318, 1568, 2093].forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        gain.gain.setValueAtTime(0.35, now + i * 0.07);
+        gain.gain.linearRampToValueAtTime(0, now + i * 0.07 + 0.18);
+        osc.start(now + i * 0.07);
+        osc.stop(now + i * 0.07 + 0.18);
+        osc.onended = () => gain.disconnect();
+      });
+      setTimeout(() => ctx.close(), 600);
+    }
+
+    document.getElementById('start-btn').onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-welcome').style.display = 'none';
+        document.getElementById('screen-size').style.display = 'flex';
+      });
+    };
+    // Lボタンで種類選択画面へ
+    const lBtn = document.querySelectorAll('.coffee-size-circle')[0];
+    lBtn.onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-size').style.display = 'none';
+        document.getElementById('screen-type').style.display = 'flex';
+      });
+    };
+    // Rボタンでも種類選択画面へ
+    const rBtn = document.querySelectorAll('.coffee-size-circle')[1];
+    rBtn.onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-size').style.display = 'none';
+        document.getElementById('screen-type').style.display = 'flex';
+      });
+    };
+    // COFFEEボタンでHOT/ICE画面へ
+    const coffeeBtn = document.querySelectorAll('.coffee-type-main')[0];
+    coffeeBtn.onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-type').style.display = 'none';
+        document.getElementById('screen-hotice').style.display = 'flex';
+        window.isCafeLatte = false;
+      });
+    };
+    // CAFE LATTEボタンでHOT/ICE画面へ
+    const latteBtn = document.querySelectorAll('.coffee-type-main')[1];
+    latteBtn.onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-type').style.display = 'none';
+        document.getElementById('screen-hotice').style.display = 'flex';
+        window.isCafeLatte = true;
+      });
+    };
+    // ICEボタンで濃さ選択画面または抽出中画面へ
+    const iceBtn = document.querySelector('.coffee-hotice-main.ice');
+    iceBtn.onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-hotice').style.display = 'none';
+        if(window.isCafeLatte) {
+          document.getElementById('screen-brewing').style.display = 'flex';
+          setTimeout(function() {
+            document.getElementById('screen-brewing').style.display = 'none';
+            document.getElementById('screen-finish').style.display = 'flex';
+            playArpeggio();
+          }, 2500);
+        } else {
+          document.getElementById('screen-strength').style.display = 'flex';
+        }
+      });
+    };
+    // HOTボタンで濃さ選択画面または抽出中画面へ
+    const hotBtn = document.querySelector('.coffee-hotice-main.hot');
+    hotBtn.onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-hotice').style.display = 'none';
+        if(window.isCafeLatte) {
+          document.getElementById('screen-brewing').style.display = 'flex';
+          setTimeout(function() {
+            document.getElementById('screen-brewing').style.display = 'none';
+            document.getElementById('screen-finish').style.display = 'flex';
+            playArpeggio();
+          }, 2500);
+        } else {
+          document.getElementById('screen-strength').style.display = 'flex';
+        }
+      });
+    };
+    // ふつうボタンで抽出中画面へ
+    const normalBtn = document.querySelectorAll('.coffee-strength-option')[1];
+    normalBtn.onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-strength').style.display = 'none';
+        document.getElementById('screen-brewing').style.display = 'flex';
+        setTimeout(function() {
+          document.getElementById('screen-brewing').style.display = 'none';
+          document.getElementById('screen-finish').style.display = 'flex';
+          playArpeggio();
+        }, 2500);
+      });
+    };
+    // 濃いめボタンで抽出中画面へ
+    const strongBtn = document.querySelectorAll('.coffee-strength-option')[0];
+    strongBtn.onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-strength').style.display = 'none';
+        document.getElementById('screen-brewing').style.display = 'flex';
+        setTimeout(function() {
+          document.getElementById('screen-brewing').style.display = 'none';
+          document.getElementById('screen-finish').style.display = 'flex';
+          playArpeggio();
+        }, 2500);
+      });
+    };
+    // うすめボタンで抽出中画面へ
+    const weakBtn = document.querySelectorAll('.coffee-strength-option')[2];
+    weakBtn.onclick = function() {
+      playStartSound();
+      pressAndGo(this, () => {
+        document.getElementById('screen-strength').style.display = 'none';
+        document.getElementById('screen-brewing').style.display = 'flex';
+        setTimeout(function() {
+          document.getElementById('screen-brewing').style.display = 'none';
+          document.getElementById('screen-finish').style.display = 'flex';
+          playArpeggio();
+        }, 2500);
+      });
+    };
+  </script>
+</body>
+</html>
